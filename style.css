@@ -1,12 +1,11 @@
 body {
-  font-family: system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Luckiest Guy", cursive;
+  background-color: rgb(255, 247, 203);
 }
 
 #game div {
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 20px;
   width: 15%;
   height: 200px;
   margin: 10px;
@@ -14,5 +13,62 @@ body {
 }
 
 #current-score {
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#start {
+  color: black;
+  height: 100vh; //occupying % of entire visible screen
+  position: relative;
+  text-align: center;
+}
+
+//The perspective CSS property gives an element a 3D-space by affecting the distance between the Z plane and the user.
+//The strength of the effect is determined by the value.
+//The smaller the value, the closer you get from the Z plane and the more impressive the visual effect.
+#header {
+  perspective: 600px;
+}
+
+#header > p {
+  font-size: 100px;
+  transform: rotateX(45deg);
+  line-height: 1;
+  color: black;
+}
+
+#start.playing {
+  margin-top: -90vh;
+  transition: margin-top 1s ease-in-out;
+}
+
+#start-button {
+  margin-top: 20px;
+  padding: 20px 100px;
+}
+
+#start-button:hover {
+  cursor: pointer;
+}
+
+#end {
+  display: none;
+}
+
+#end.game-over {
+  display: flex;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  justify-content: space-around;
+  text-align: center;
 }

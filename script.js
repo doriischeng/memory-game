@@ -76,6 +76,11 @@ let firstCard, secondCard;
 let cardFlipped = 0;
 let currentScore = 0;
 
+let startButton = document.querySelector(
+  "#start-button"
+);
+startButton.addEventListener("click", startGame);
+
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
@@ -145,8 +150,25 @@ function handleCardClick(event) {
   }
 
   if (cardFlipped === COLORS.length) {
-    alert("YOU WIN!");
+    endGame();
   }
+}
+
+//DO NOT UNDERSTAND - ASK MENTOR
+
+function startGame() {
+  setScore(0);
+  start.classList.add("playing");
+  // let indices = [];
+  // for (let i = 1; i <= COLORS.length / 2; i++) {
+  //   indices.push(i.toString());
+  // }
+  // let pairs = shuffle(indices.concat(indices));
+
+  // for (let i = 0; i < COLORS.length; i++) {
+  //   let path = "gifs/" + pairs[i] + ".gif";
+  //   cards[i].children[1].children[0].src = path;
+  // }
 }
 
 //set the score - time of flipping
@@ -155,7 +177,14 @@ function setScore(newScore) {
   currentScore = newScore; //newScore is like a placeholder, changing
   document.querySelector(
     "#current-score"
-  ).innerText = currentScore; //modify the current score display on html
+  ).innerText = `Current Score: ${currentScore}`; //modify the current score display on html
+}
+
+function endGame() {
+  let end = document.querySelector("#end");
+  let message = end.children[1];
+  message.innerText = `Your score: ${currentScore}`;
+  end.classList.add("game-over");
 }
 
 // when the DOM loads
